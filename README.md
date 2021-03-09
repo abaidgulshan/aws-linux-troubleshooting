@@ -1,5 +1,9 @@
 # aws-linux-troubleshooting
 
+## PHP output showing little black diamonds with a question mark
+php.ini and add:
+
+* `default_charset = "ISO-8859-1"`
 ## Docker overlays disk space 
 * `docker system prune -a -f`
 
