@@ -1,5 +1,12 @@
 # aws-linux-troubleshooting
 
+## How to combine two files line by line in linux bash script
+* `paste file1.txt file2.txt > fileresults.txt`
+
+## Add prefix and suffix to every line in a file bash script
+
+* `awk '{ print "Prefix TXT", $0, "Suffix TXT" }' file.txt`
+
 ## PHP output showing little black diamonds with a question mark
 php.ini and add:
 
