@@ -29,3 +29,24 @@ php.ini and add:
 ## Decode file Base64
 * Try to upload base64 encoded file to AWS secret manager
 * Solution: `base64 -w 0 AWS-ClientVPN.xml`
+
+## Encrypt AWS CloudTrail logs Cross account 
+* 🤔  **Try**: I have two Accounts a master account and a sub account that is used for logging. My goal is to send the CloudTrail logs from the master account to the s3 bucket in the logging account. At this point I have configured the the CloudTrail logs to point to the s3 bucket in the logging account
+* ❌ **Error**: I get the error `You don't have adequate permissions in S3 to perform this operation`.
+* 🎯 **Solution**: Steps
+  * created the customer-managed KMS on the same account + region as the s3.
+  * to the KMS, added following policy
+    ```
+     {
+       "Sid": "Allow use of the key",
+       "Effect": "Allow",
+       "Principal": {
+           "Service": "cloudtrail.amazonaws.com"
+        },
+        "Action": "kms:*",     # "kms:ReEncryptFrom", "kms:Decrypt" should be enough though
+        "Resource": "KMS_KEY_ARN"
+      }
+    ```
+  * enable defatul-encryption on the S3 bucket, selecting created KMS
+  * in the cloudtrail (org managed account), provide the KMS with the full KMS_KEY_ARN, not just the name
+* 🙏🏻 **Reference**: [Steps](https://stackoverflow.com/questions/69740814/troubleshooting-kms-key-policies-for-cross-account-decryption)https://stackoverflow.com/questions/69740814/troubleshooting-kms-key-policies-for-cross-account-decryption
