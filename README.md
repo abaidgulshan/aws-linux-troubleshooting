@@ -32,7 +32,7 @@ php.ini and add:
 
 ## Encrypt AWS CloudTrail logs Cross account 
 * 🤔  **Try**: I have two Accounts a master account and a sub account that is used for logging. My goal is to send the CloudTrail logs from the master account to the s3 bucket in the logging account. At this point I have configured the the CloudTrail logs to point to the s3 bucket in the logging account
-* ❌ **Error**: I get the error `You don't have adequate permissions in S3 to perform this operation`.
+* ❌ **Error**: I am getting the error `You don't have adequate permissions in S3 to perform this operation`.
 * 🎯 **Solution**: Steps
   * created the customer-managed KMS on the same account + region as the s3.
   * to the KMS, added following policy
@@ -50,3 +50,13 @@ php.ini and add:
   * enable defatul-encryption on the S3 bucket, selecting created KMS
   * in the cloudtrail (org managed account), provide the KMS with the full KMS_KEY_ARN, not just the name
 * 🙏🏻 **Reference**: [Steps](https://stackoverflow.com/questions/69740814/troubleshooting-kms-key-policies-for-cross-account-decryption)https://stackoverflow.com/questions/69740814/troubleshooting-kms-key-policies-for-cross-account-decryption
+
+## Jenkinsfile Docker push issue
+* 🤔  **Try**: Try to create docker image and push to ECR
+* ❌ **Error**: I am getting the error `End of Pipeline groovy.lang.MissingPropertyException: No such property: docker for class: groovy.lang.Binding`.
+* 🎯 **Solution**: The issue was I needed to install the Docker Pipeline plugin in Jenkins.
+
+    * To install the plugin using the GUI:
+
+    * `Dashboard > Manage Jenkins > Manage Plugins > Available (tab) > docker-workflow.`
+* 🙏🏻 **Reference**: https://stackoverflow.com/questions/41215997/jenkins-error-no-such-property-docker-for-class-groovy-lang-binding
