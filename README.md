@@ -58,5 +58,15 @@ php.ini and add:
 
     * To install the plugin using the GUI:
 
-    * `Dashboard > Manage Jenkins > Manage Plugins > Available (tab) > docker-workflow.`
+    * `Dashboard > Manage Jenkins > Manage Plugins > Available (tab) > docker-pipeline.`
 * 🙏🏻 **Reference**: https://stackoverflow.com/questions/41215997/jenkins-error-no-such-property-docker-for-class-groovy-lang-binding
+
+## Jenkinsfile Docker push ECR issue
+* 🤔  **Try**: Try to create docker image and push to ECR
+* ❌ **Error**: I am getting the error `ERROR: Could not find credentials matching ecr:us-east-1:awscreds`.
+* 🎯 **Solution**: The issue was I needed to install the Amazon ECR plugin in Jenkins.
+
+    * To install the plugin using the GUI:
+
+    * `Dashboard > Manage Jenkins > Manage Plugins > Available (tab) > Amazon ECR.`
+* 🙏🏻 **Reference**: https://stackoverflow.com/questions/47937146/is-it-possible-to-provide-my-aws-credentials-in-the-docker-withregistry-call-in
