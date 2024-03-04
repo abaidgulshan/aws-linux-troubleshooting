@@ -70,3 +70,18 @@ php.ini and add:
 
     * `Dashboard > Manage Jenkins > Manage Plugins > Available (tab) > Amazon ECR.`
 * 🙏🏻 **Reference**: https://stackoverflow.com/questions/47937146/is-it-possible-to-provide-my-aws-credentials-in-the-docker-withregistry-call-in
+
+## IAM billing access allow 
+* 🤔  **Try**: Try to add billing permission for IAM user 
+* ❌ **Error**: IAM AWS user unable to access billing console still
+* 🎯 **Solution**:
+  * Sign in to the AWS Management Console with your AWS account root user credentials.
+  * In the navigation bar, choose your account name, and then choose Account.
+  * Next to IAM user and Role Access to Billing Information, choose Edit.
+  * Select the Activate IAM Access check box to activate access to the Billing and Cost Management console pages.
+  * Note: Because this setting is deactivated by default, the root user must manually activate it. For more information on activating this setting, see Granting access to your billing information and tools.
+  * Choose Update.
+* 🙏🏻 **Reference**: https://repost.aws/knowledge-center/iam-billing-access#
+![image](https://github.com/abaidgulshan/aws-linux-troubleshooting/assets/7329596/c747339c-3782-4283-a3a8-868e2e3efee0)
+
+
