@@ -84,4 +84,9 @@ php.ini and add:
 * 🙏🏻 **Reference**: https://repost.aws/knowledge-center/iam-billing-access#
 ![image](https://github.com/abaidgulshan/aws-linux-troubleshooting/assets/7329596/c747339c-3782-4283-a3a8-868e2e3efee0)
 
+## ECR Public repo 403 Forbidden
+* 🤔  **Try**: Try to install Karpenter helm chart to AWS EKS
+* ❌ **Error**: `Error: unexpected status from HEAD request to https://public.ecr.aws/v2/karpenter/karpenter/manifests/0.35.0: 403 Forbidden`
+* 🎯 **Solution**: Logout of helm registry to perform an unauthenticated pull against the public ECR
+  * `helm registry logout public.ecr.aws`
 
