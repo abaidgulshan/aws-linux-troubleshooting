@@ -90,3 +90,8 @@ php.ini and add:
 * 🎯 **Solution**: Logout of helm registry to perform an unauthenticated pull against the public ECR
   * `helm registry logout public.ecr.aws`
 
+## You are not authorized to perform this operation
+* 🤔  **Try**: Try to install Karpenter Nodes with NodePools configuration
+* ❌ **Error**: `You are not authorized to perform this operation. Encoded authorization failure message: KDmmJmkLKmQhatEqYt...MN3iUtfAa`
+* 🎯 **Solution**: use the following aws cli command from the console
+  * `aws sts decode-authorization-message --encoded-message KDmmJmkLKm...iUtfAa`
