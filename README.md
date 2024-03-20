@@ -95,3 +95,26 @@ php.ini and add:
 * ❌ **Error**: `You are not authorized to perform this operation. Encoded authorization failure message: KDmmJmkLKmQhatEqYt...MN3iUtfAa`
 * 🎯 **Solution**: use the following aws cli command from the console
   * `aws sts decode-authorization-message --encoded-message KDmmJmkLKm...iUtfAa`
+
+## SCP policy for single bucket
+* 🤔  **Try**: Try to apply SCP policy for single S3 bucket
+* 🎯 **Solution**: use the following aws cli command from the console
+    ```
+     {
+         "Version": “2012–10–17”,
+         "Statement": [
+             {
+                 "Sid": “s3-versioning-and-s3-object-delete-restriction”,
+                 "Effect": "Deny",
+                 "Action": [
+                     "“s3": "DeleteObjectVersion”",
+                     "“s3": "PutBucketVersioning”",
+                     "“s3": "PutObjectVersionAcl”"
+                 ],
+                 "Resource": [
+                     "“arn": "aws": "s3": : : scpolicyfors3bucket”
+                 ]
+             }
+         ]
+     }
+   ```
