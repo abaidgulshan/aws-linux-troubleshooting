@@ -118,3 +118,7 @@ php.ini and add:
          ]
      }
    ```
+## vim add extra character end of each line
+* 🤔  **Try**: add extra character end of each line
+* 🎯 **Solution**: `:%s/$/\*/g`
+* 🙏🏻 **Reference**: https://stackoverflow.com/questions/594448/how-can-i-add-a-string-to-the-end-of-each-line-in-vim
